@@ -2,22 +2,52 @@
 *{
     margin: 0;
 }
+.container{
+    display: flex;
+    background-color: rgb(107, 79, 134);
+}
 .landing-pg{
-    background-color: blueviolet;
+    
     width: 100vw;
     height: 100vh;
     padding: 0;
     margin: 0;
 }
 .main-heading{
-    opacity: 35%;
-    font-size: 80px;
+    
+    padding-top: 6%;
+    font-size: 105px;
     list-style: none;
-    align-items: right;
+    align-items: flex-end;
+    /* justify-content: right; */
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
 }
 .normal-head{
     font-family: 'Fjalla One', sans-serif;
+    opacity: 35%;
 }
-.hollow-head{
-    font-family: 'Londrina Outline', cursive;
+.sp-head{
+    font-family: 'Fjalla One', sans-serif;
+    opacity: 65%;
+}
+
+/* .search-box{
+    z-index: 2;
+} */
+
+
+.home-img{
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    /* height: 100vh; */
+}
+.vector-img{
+    width: 500px;
+    opacity: 0.8;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* height: 100px; */
 }
