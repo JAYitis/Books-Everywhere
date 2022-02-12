@@ -1,0 +1,23 @@
+
+*{
+    margin: 0;
+}
+.landing-pg{
+    background-color: blueviolet;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+.main-heading{
+    opacity: 35%;
+    font-size: 80px;
+    list-style: none;
+    align-items: right;
+}
+.normal-head{
+    font-family: 'Fjalla One', sans-serif;
+}
+.hollow-head{
+    font-family: 'Londrina Outline', cursive;
+}
