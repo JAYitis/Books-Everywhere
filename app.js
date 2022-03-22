@@ -19,27 +19,27 @@ function windowScroll() {
     }
 }
 
-window.addEventListener('scroll', (ev) => {
-    ev.preventDefault();
-    windowScroll();
-})
+// window.addEventListener('scroll', (ev) => {
+//     ev.preventDefault();
+//     windowScroll();
+// })
 
 
 // Smooth scroll 
-var scroll = new SmoothScroll('#navbar-navlist a', {
-    speed: 500,
-    offset: 70
-});
+// var scroll = new SmoothScroll('#navbar-navlist a', {
+//     speed: 500,
+//     offset: 70
+// });
 
 
 // // Navbar Active Class
 
-var spy = new Gumshoe('#navbar-navlist a', {
-    // Active classes
-    navClass: 'active', // applied to the nav list item
-    contentClass: 'active', // applied to the content
-    offset: 80
-});
+// var spy = new Gumshoe('#navbar-navlist a', {
+//     // Active classes
+//     navClass: 'active', // applied to the nav list item
+//     contentClass: 'active', // applied to the content
+//     offset: 80
+// });
 
 
 // Contact Form
@@ -97,16 +97,16 @@ function fadeIn() {
 
 
 // Preloader
-window.onload = function preloader() { 
-    setTimeout(() => {
-        document.getElementById('preloader').style.visibility = 'hidden';
-        document.getElementById('preloader').style.opacity = '0';
-        window.Unicons.refresh();
-    }, 1000);
-} 
+// window.onload = function preloader() { 
+//     setTimeout(() => {
+//         document.getElementById('preloader').style.visibility = 'hidden';
+//         document.getElementById('preloader').style.opacity = '0';
+//         window.Unicons.refresh();
+//     }, 1000);
+// } 
 
 // feather icon
-feather.replace()
+// feather.replace()
 
 
 //jshint esversion:6
@@ -122,12 +122,13 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const path = require('path');
 
 const app = express();
 
 // console.log(process.env.API_KEY); // For checking what the API_KEY looks like
 
-app.use(express.static('public'));
+// app.use(express.static("public"));
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({
     extended:true
@@ -160,15 +161,21 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// app.use(express.static('public'))
+
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
+
+
 app.get('/', function(req, res){
-    res.render('Home')
+    res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/login', function(req, res){
+app.get('/views/login', function(req, res){
     res.render('login')
 });
 
-app.get('/register', function(req, res){
+app.get('/views/register', function(req, res){
     res.render('register')
 });
 
